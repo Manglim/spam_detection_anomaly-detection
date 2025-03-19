@@ -70,10 +70,6 @@ Open `spam_detection_ml.ipynb` and execute the cells.
 - **Autoencoder Reconstruction Error**\
 
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
 ## 🤝 Contributing
 
 Feel free to **fork** this repository, submit **issues**, and create **pull requests** to improve the model!
