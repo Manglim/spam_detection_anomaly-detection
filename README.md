@@ -1,80 +1,54 @@
-# 📧 Spam Detection, Feature Analysis & Anomaly Detection
+# Spam Email Classification and Anomaly Detection
 
-This repository contains a **machine learning pipeline** for **spam classification, feature importance analysis, and anomaly detection** using the **Spambase dataset**.
+## Overview
+This project classifies emails as spam or not spam using the Spambase dataset (`spambase_csv.csv`). It employs Logistic Regression, Random Forest, SVM, and Neural Network models, analyzes feature importance, performs K-Means clustering with PCA, and uses an autoencoder for anomaly detection. Comprehensive visualizations provide insights into model performance and data patterns.
 
-## 🚀 Features:
+## Functionality
+1. **Preprocessing**:
+   - Loads `spambase_csv.csv`, scales 57 features with `StandardScaler`.
+   - Splits data (80% train, 20% test).
 
-- **Spam Classification** using **Logistic Regression, Random Forest, SVM, and Neural Networks**.
-- **Feature Importance Analysis** using **SHAP values** to explain model decisions.
-- **Anomaly Detection** using **K-Means Clustering and Autoencoders** to detect suspicious email patterns.
-- **Data Preprocessing** with **StandardScaler & PCA** for dimensionality reduction.
-- **Visualization** of feature importance and clustering results.
+2. **Classification**:
+   - Trains Logistic Regression, Random Forest, SVM, and Neural Network (MLP).
+   - Evaluates with accuracy, precision, recall, and F1-score.
 
-## 📌 Installation & Setup
+3. **Feature Importance**:
+   - Uses Random Forest to rank feature importance.
 
-### 1️⃣ **Clone the Repository**
+4. **Clustering**:
+   - Applies PCA (2D) and K-Means (2 clusters) for visualization.
 
+5. **Anomaly Detection**:
+   - Trains an autoencoder to detect anomalies via reconstruction error.
+
+6. **Visualization**:
+   - Model accuracy bar plot, feature importance, PCA clustering, autoencoder loss, and error distribution.
+
+## Frameworks and Libraries
+- **Python**: Core.
+- **Pandas**: Data handling (`pd`).
+- **NumPy**: Numerical ops (`np`).
+- **Matplotlib**: Plots (`plt`).
+- **Seaborn**: Visualizations (`sns`).
+- **Scikit-learn**: Modeling, clustering (`RandomForestClassifier`, etc.).
+- **TensorFlow/Keras**: Autoencoder (`keras`).
+
+## Dataset
+- Source: `spambase_csv.csv` (UCI Spambase).
+- Rows: 4,601 (3,680 train, 921 test).
+- Columns: 58 (57 features + `class`).
+- Features: Word/char frequencies, capital run lengths.
+- Target: `class` (0 = not spam, 1 = spam).
+
+## Key Features
+- **Multi-Model**: Compares four classifiers for spam detection.
+- **Insights**: Identifies top spam predictors.
+- **Clustering**: Visualizes data in 2D PCA space.
+- **Anomaly Detection**: Flags unusual emails with autoencoder.
+- **Visuals**: Detailed plots for analysis.
+
+## Installation
 ```bash
-git clone https://github.com/yourusername/spam-detection-ml.git
-cd spam-detection-ml
-```
+pip install pandas numpy matplotlib seaborn scikit-learn tensorflow
 
-### 2️⃣ **Install Dependencies**
-
-Ensure you have Python installed, then install the required libraries:
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3️⃣ **Run the Jupyter Notebook**
-
-```bash
-jupyter notebook
-```
-
-Open `spam_detection_ml.ipynb` and execute the cells.
-
-## 🛠 Usage Guide
-
-### 🔍 **1. Train Spam Detection Models**
-
-- The notebook automatically **splits the data**, **trains models**, and **evaluates accuracy**.
-- The following classifiers are included:
-  - ✅ Logistic Regression
-  - ✅ Random Forest
-  - ✅ Support Vector Machine (SVM)
-  - ✅ Neural Network (MLPClassifier)
-
-### 📊 **2. Analyze Feature Importance**
-
-- The model utilizes **SHAP values** to show which words and patterns contribute most to classification.
-- Run the SHAP section to generate visualizations.
-
-### 🚨 **3. Detect Anomalies**
-
-- **K-Means Clustering** is applied to identify outliers in email patterns.
-- **Autoencoders** are used to reconstruct normal email patterns and detect anomalies.
-- The results are plotted for easy analysis.
-
-## 📷 Sample Outputs:
-
-- **Spam Classification Accuracy**
-  ```
-  Random Forest Accuracy: 97.4%
-  ```
-- **Feature Importance (SHAP Summary Plot)**\
-
-- **K-Means Clustering Visualization**\
-
-- **Autoencoder Reconstruction Error**\
-
-
-## 🤝 Contributing
-
-Feel free to **fork** this repository, submit **issues**, and create **pull requests** to improve the model!
-
----
-
-🚀 **Happy Coding!** 🚀
 
